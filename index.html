@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuestBuddy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: 80px 24px;
+      text-align: center;
+      border-bottom: 1px solid #334155;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #64ffda, #2dd4bf);
+      color: #0f172a;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    h1 { font-size: 3rem; font-weight: 800; margin-bottom: 12px; }
+    .subtitle { font-size: 1.2rem; color: #94a3b8; max-width: 600px; margin: 0 auto 32px; }
+    .badge { display: inline-block; background: #64ffda22; color: #64ffda; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #64ffda44; margin-bottom: 24px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #64ffda; color: #0f172a; padding: 12px 28px;
+      border-radius: 10px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px #64ffda33; }
+    .btn-outline {
+      background: transparent; color: #e2e8f0; border: 1px solid #334155;
+      margin-left: 12px;
+    }
+    .btn-outline:hover { border-color: #64ffda; color: #64ffda; box-shadow: none; }
+    section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
+    h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 24px; text-align: center; }
+    .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+    .feature {
+      background: #1e293b; border: 1px solid #334155; border-radius: 12px;
+      padding: 20px; transition: border-color 0.15s;
+    }
+    .feature:hover { border-color: #64ffda44; }
+    .feature h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; color: #64ffda; }
+    .feature p { font-size: 0.85rem; color: #94a3b8; }
+    .screenshots { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .screenshot {
+      background: #1e293b; border: 1px solid #334155; border-radius: 12px;
+      padding: 40px 20px; text-align: center; color: #64748b;
+    }
+    .themes-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .theme-tag {
+      padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;
+      background: #1e293b; border: 1px solid #334155; color: #94a3b8;
+    }
+    footer {
+      text-align: center; padding: 32px 24px; color: #64748b; font-size: 0.85rem;
+      border-top: 1px solid #1e293b;
+    }
+    footer a { color: #64ffda; text-decoration: none; }
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      .btn { display: block; margin: 8px 0; text-align: center; }
+      .btn-outline { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo">QB</div>
+    <h1>QuestBuddy</h1>
+    <div class="badge">v0.1.0 &middot; Windows</div>
+    <p class="subtitle">A system-tray companion for Hollow Knight and Silksong. Track progress, explore stats, edit saves — all from a sleek desktop app.</p>
+    <a class="btn" href="https://github.com/Boyfriend707/Quest-Buddy-source/releases" target="_blank">&#11015; Download</a>
+    <a class="btn btn-outline" href="https://github.com/Boyfriend707/Quest-Buddy-source" target="_blank">View Source</a>
+  </div>
+
+  <section>
+    <h2>Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Save Detection</h3>
+        <p>Automatically reads Hollow Knight and Silksong saves with built-in AES-256 decryption.</p>
+      </div>
+      <div class="feature">
+        <h3>Progress Stats</h3>
+        <p>Geo, soul vessels, grubs, nail upgrades, charms, bosses, dream essence — all in one view.</p>
+      </div>
+      <div class="feature">
+        <h3>Next Steps</h3>
+        <p>Smart suggestions based on your current save to help you decide what to do next.</p>
+      </div>
+      <div class="feature">
+        <h3>Save Editor</h3>
+        <p>Browse and edit raw playerData fields directly from the app.</p>
+      </div>
+      <div class="feature">
+        <h3>8 Themes</h3>
+        <p>Dark, Purple, Light, Forest, Ocean, Amber, Rose, and Slate — pick your favourite.</p>
+      </div>
+      <div class="feature">
+        <h3>Tray Integration</h3>
+        <p>Minimizes to the system tray. Close hides to tray, right-click to quit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Themes</h2>
+    <div class="themes-grid">
+      <span class="theme-tag" style="border-color:#64ffda; color:#64ffda;">Dark</span>
+      <span class="theme-tag" style="border-color:#c084fc; color:#c084fc;">Purple</span>
+      <span class="theme-tag" style="border-color:#6366f1; color:#6366f1;">Light</span>
+      <span class="theme-tag" style="border-color:#4ade80; color:#4ade80;">Forest</span>
+      <span class="theme-tag" style="border-color:#60a5fa; color:#60a5fa;">Ocean</span>
+      <span class="theme-tag" style="border-color:#f59e0b; color:#f59e0b;">Amber</span>
+      <span class="theme-tag" style="border-color:#fb7185; color:#fb7185;">Rose</span>
+      <span class="theme-tag" style="border-color:#94a3b8; color:#94a3b8;">Slate</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Installation</h2>
+    <p style="text-align:center; color:#94a3b8; max-width:500px; margin:0 auto 24px;">
+      Download the latest installer from the releases page, run it, and you're ready to go. No additional dependencies needed.
+    </p>
+    <div style="text-align:center;">
+      <a class="btn" href="https://github.com/Boyfriend707/Quest-Buddy-source/releases" target="_blank">&#11015; Download from GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made with &#9829; by <a href="https://github.com/Boyfriend707">Boyfriend707</a></p>
+    <p style="margin-top:4px;">QuestBuddy is not affiliated with Team Cherry.</p>
+  </footer>
+</body>
+</html>
