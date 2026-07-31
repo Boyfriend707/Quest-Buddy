@@ -84,7 +84,7 @@
     <h1>QuestBuddy</h1>
     <div class="badge">v0.1.2 &middot; Windows</div>
     <p class="subtitle">A system-tray companion for Hollow Knight and Silksong. Track progress, explore stats, edit saves — all from a sleek desktop app.</p>
-    <a class="btn" href="https://github.com/Boyfriend707/Quest-Buddy-source/releases" target="_blank">&#11015; Download</a>
+    <a class="btn" id="dl-btn-hero" href="https://github.com/Boyfriend707/Quest-Buddy-source/releases/latest" target="_blank">&#11015; Download</a>
     <a class="btn btn-outline" href="https://github.com/Boyfriend707/Quest-Buddy-source" target="_blank">View Source</a>
   </div>
 
@@ -164,7 +164,7 @@
       Download the latest installer from the releases page, run it, and you're ready to go. No additional dependencies needed.
     </p>
     <div style="text-align:center;">
-      <a class="btn" href="https://github.com/Boyfriend707/Quest-Buddy-source/releases" target="_blank">&#11015; Download from GitHub</a>
+      <a class="btn" id="dl-btn-install" href="https://github.com/Boyfriend707/Quest-Buddy-source/releases/latest" target="_blank">&#11015; Download from GitHub</a>
     </div>
   </section>
 
@@ -172,5 +172,19 @@
     <p>Made with &#9829; by <a href="https://github.com/Boyfriend707">Boyfriend707</a></p>
     <p style="margin-top:4px;">QuestBuddy is not affiliated with Team Cherry or any other game studio.</p>
   </footer>
+  <script>
+    const DL_BTN_IDS = ['dl-btn-hero', 'dl-btn-install'];
+    async function linkLatest() {
+      try {
+        const res = await fetch('https://api.github.com/repos/Boyfriend707/Quest-Buddy-source/releases/latest');
+        if (!res.ok) throw new Error(res.status);
+        const release = await res.json();
+        const asset = (release.assets || []).find(a => a.name.endsWith('-setup.exe'));
+        const url = asset ? asset.browser_download_url : release.html_url;
+        if (url) DL_BTN_IDS.forEach(id => document.getElementById(id).href = url);
+      } catch (e) { /* keep releases/latest fallback */ }
+    }
+    linkLatest();
+  </script>
 </body>
 </html>
